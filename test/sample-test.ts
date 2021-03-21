@@ -2,14 +2,11 @@ const { expect } = require("chai");
 import {ethers} from 'hardhat'
 import { Signer } from "ethers"
 
-describe("Greeter", function() {
-  it("Should return the new greeting once it's changed", async function() {
-    const Greeter = await ethers.getContractFactory("Greeter");
-    const greeter = await Greeter.deploy("Hello, world!");
-    await greeter.deployed();
-    expect(await greeter.greet()).to.equal("Hello, world!");
-
-    await greeter.setGreeting("Hola, mundo!");
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
+describe("ZombieFactory", function() {
+  it("Should return the ZombieFactory", async function() {
+    const ZombieFactory = await ethers.getContractFactory("ZombieFactory");
+    const zombieFactory = await ZombieFactory.deploy();
+    await zombieFactory.deployed();
+    await zombieFactory.createRandomZombie("zombie");
   });
 });
